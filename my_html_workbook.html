@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>A notebook for HTML workshop</title>
+	 <style>
+        #drag-and-drop {
+            width: 300px;
+            height: 150px;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
 </head>
 <body>
+	<h1>HTML Drag and Drop Example</h1>
+    <p>Drag and drop the text below into the box:</p>
+    <div id="drag-and-drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <p id="drag-me" draggable="true" ondragstart="drag(event)">Drag me!</p>
+	
 	 <h1>HTML Geolocation Example</h1>
     <p>Click the button to get your coordinates:</p>
     
