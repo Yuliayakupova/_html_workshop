@@ -5,6 +5,16 @@
     <title>A notebook for HTML workshop</title>
 </head>
 <body>
-    
+    <a href="/api/data?param1=value1&param2=value2">Click here to make a GET request</a>
+	
+	<form action="/api/submit" method="post">
+    <label for="param1">Parameter 1:</label>
+    <input type="text" id="param1" name="param1"><br><br>
+
+    <label for="param2">Parameter 2:</label>
+    <input type="text" id="param2" name="param2"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
