@@ -5,6 +5,28 @@
     <title>A notebook for HTML workshop</title>
 </head>
 <body>
+	 <h1>HTML Geolocation Example</h1>
+    <p>Click the button to get your coordinates:</p>
+    
+    <button onclick="getLocation()">Get Location</button>
+    
+    <p id="demo"></p>
+    
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("demo").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+        }
+    </script
     <form action="/api/submit" method="post" enctype="multipart/form-data">
         <label for="param1">Parameter 1:</label>
         <input type="text" id="param1" name="param1" required><br><br>
